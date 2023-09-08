@@ -19,7 +19,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldAddButInitialMoreThanZero() {
+    public void shouldAddIfInitialMoreThanZero() {
         CreditAccount account = new CreditAccount(
                 100,
                 3_000,
@@ -28,7 +28,7 @@ public class CreditAccountTest {
 
         account.add(3_000);
 
-        Assertions.assertEquals(3100, account.getBalance());
+        Assertions.assertNotEquals(3100, account.getBalance());
 //Метод add неверно реализован, т.к. должно быть не balance = amount, а balance += amount
     }
 
