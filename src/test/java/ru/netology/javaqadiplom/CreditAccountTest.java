@@ -194,6 +194,75 @@ public void CreateCreditAccountWithPositiveRate() {
         Assertions.assertEquals(expected, actual);
     }
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//ок, тестируем метод pay
+    //покупка меньше лимита
+@Test
+public void ShouldPayIfAmountLessThanLimit() {
+    CreditAccount account = new CreditAccount(
+            0,
+            5_000,
+            15
+    );
+    boolean expected = true;
+    boolean actual = account.pay(3_000);
+
+    Assertions.assertEquals(expected, actual);
+}
+    @Test
+    // покупка равна лимиту
+    public void ShouldPayIfAmountEqualLimit() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        boolean expected = true;
+        boolean actual = account.pay(5_000);
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    //больше лимита
+    public void ShouldPayIfAmountMoreThanLimit() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        boolean expected = false;
+        boolean actual = account.pay(6_000);
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    //Покупка равна нулю
+    public void ShouldPayIfAmountIsZero() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        boolean expected = false;
+        boolean actual = account.pay(0);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    public void ShouldPayIfAmountLessThenZero() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        boolean expected = false;
+        boolean actual = account.pay(0);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+
 
 
 
