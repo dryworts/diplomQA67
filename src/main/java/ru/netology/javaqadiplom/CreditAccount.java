@@ -86,14 +86,27 @@ public class CreditAccount extends Account {
      * @param amount
      * @return
      */
+    //было
+//    @Override
+//    public boolean add(int amount) {
+//        if (amount <= 0) {
+//            return false;
+//        }
+//        balance = amount;
+//        return true;
+//    }
+    //стало
     @Override
     public boolean add(int amount) {
         if (amount <= 0) {
             return false;
         }
-        balance = amount;
+        balance += amount;
         return true;
     }
+
+
+
 
     /**
      * Операция расчёта процентов на отрицательный баланс счёта при условии, что
