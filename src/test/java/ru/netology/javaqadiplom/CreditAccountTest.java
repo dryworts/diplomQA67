@@ -17,6 +17,7 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(3_000, account.getBalance());
     }
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     @Test
     //пополнить баланс на положительную сумму
     public void AddPositiveToBalance() {
@@ -45,7 +46,7 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
-
+    @Test
     public void AddZeroToBalance() {
 
         CreditAccount account = new CreditAccount(
@@ -58,6 +59,53 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Блок проверки стартового баланса
+@Test
+public void CreateCreditAccountWithInitialBalancePositive() {
+
+    CreditAccount account = new CreditAccount(
+            10,
+            5_000,
+            15
+    );
+    int expected = 10;
+    int actual = account.getBalance();
+
+    Assertions.assertEquals(expected, actual);
+}
+
+
+
+    @Test
+    //создаем объект с отрицательным балансом
+    public void CreateCreditAccountWithInitialBalanceNegative() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            CreditAccount account = new CreditAccount(
+                    -10,
+                    5_000,
+                    0
+            );
+        });
+    }
+
+    @Test
+    public void CreateCreditAccountWithInitialBalanceZero() {
+
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        int expected = 0;
+        int actual = account.getBalance();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+
 
 
 //
