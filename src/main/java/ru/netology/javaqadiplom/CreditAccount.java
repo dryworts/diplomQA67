@@ -22,17 +22,17 @@ public class CreditAccount extends Account {
                     "Накопительная ставка не может быть отрицательной, а у вас: " + rate
             );
         }
-        if (initialBalance < 0) {
-            throw new IllegalArgumentException(
-                    "Должен быть не отрицательным числом,  а у вас: " + initialBalance
-            );
-        }
-
-        if (creditLimit < 0) {
-            throw new IllegalArgumentException(
-                    "Не моожет быть отрицательным числом,  а у вас: " + creditLimit
-            );
-        }
+//        if (initialBalance < 0) {
+//            throw new IllegalArgumentException(
+//                    "Должен быть не отрицательным числом,  а у вас: " + initialBalance
+//            );
+//        }
+//
+//        if (creditLimit < 0) {
+//            throw new IllegalArgumentException(
+//                    "Не моожет быть отрицательным числом,  а у вас: " + creditLimit
+//            );
+//        }
 
         this.balance = initialBalance;
         this.creditLimit = creditLimit;
