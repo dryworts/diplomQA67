@@ -104,6 +104,95 @@ public void CreateCreditAccountWithInitialBalancePositive() {
         Assertions.assertEquals(expected, actual);
     }
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//тестируем creditLimit - неотрицательное число, максимальная сумма которую можно задолжать банку
+@Test
+public void CreateCreditAccountWithPositiveCreditLimit() {
+
+    CreditAccount account = new CreditAccount(
+            0,
+            5_000,
+            15
+    );
+    int expected = 0;
+    int actual = account.getBalance();
+
+    Assertions.assertEquals(expected, actual);
+}
+    @Test
+    public void CreateCreditAccountWithNegativeCreditLimit() {
+//        CreditAccount account = new CreditAccount(
+//                0,
+//                -5_000,
+//                15
+//        );
+//        int expected = 0;
+//        int actual = account.getBalance();
+//
+//        Assertions.assertEquals(expected, actual);
+        //
+        //
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            CreditAccount account = new CreditAccount(
+                    1_000,
+                    -5_000,
+                    1);
+        });
+    }
+
+    public void CreateCreditAccountWithZeroCreditLimit() {
+
+        CreditAccount account = new CreditAccount(
+                0,
+                0,
+                15
+        );
+        int expected = 0;
+        int actual = account.getBalance();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  //тестирую rate - неотрицательное число, ставка кредитования для расчёта долга за отрицательный баланс
+@Test
+public void CreateCreditAccountWithPositiveRate() {
+
+    CreditAccount account = new CreditAccount(
+            0,
+            5_000,
+            15
+    );
+    int expected = 0;
+    int actual = account.getBalance();
+
+    Assertions.assertEquals(expected, actual);
+}
+    @Test
+    public void CreateCreditAccountWithNegativeRate() {
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            CreditAccount account = new CreditAccount(
+                    1_000,
+                    -5_000,
+                    -1);
+        });
+
+    }
+
+
+    public void CreateCreditAccountWithZeroRate() {
+
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                0
+        );
+        int expected = 0;
+        int actual = account.getBalance();
+
+        Assertions.assertEquals(expected, actual);
+    }
 
 
 
