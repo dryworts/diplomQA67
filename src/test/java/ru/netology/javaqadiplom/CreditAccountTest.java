@@ -260,7 +260,7 @@ public void ShouldPayIfAmountLessThanLimit() {
 
         Assertions.assertEquals(expected, actual);
     }
-
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     @Test
     //Пополнить счет на положительную сумму
     public void ShouldIncreaseByPositiveAmount() {
@@ -304,8 +304,22 @@ public void ShouldPayIfAmountLessThanLimit() {
         Assertions.assertEquals(expected, actual);
     }
 
+//++++++++++++++++++++++++++++++++++++++++++++++++++
 
+    @Test
+    //Расчет процентов при положительном балансе
+    public void ShouldIncreaseRateearChangeByPositiveAmount() {
+        CreditAccount account = new CreditAccount(
+                1,
+                5_000,
+                15
+        );
 
+        boolean expected = true;
+        boolean actual = account.add(100);
+
+        Assertions.assertEquals(expected, actual);
+    }
 
 
 
