@@ -17,6 +17,7 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(3_000, account.getBalance());
     }
+
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     @Test
     //пополнить баланс на положительную сумму
@@ -32,6 +33,7 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     //пополнить баланс на отрицательную сумму
     public void AddNegativeToBalance() {
@@ -46,6 +48,7 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void AddZeroToBalance() {
 
@@ -60,22 +63,21 @@ public class CreditAccountTest {
         Assertions.assertEquals(expected, actual);
     }
 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Блок проверки стартового баланса
-@Test
-public void CreateCreditAccountWithInitialBalancePositive() {
+    @Test
+    public void CreateCreditAccountWithInitialBalancePositive() {
 
-    CreditAccount account = new CreditAccount(
-            10,
-            5_000,
-            15
-    );
-    int expected = 10;
-    int actual = account.getBalance();
+        CreditAccount account = new CreditAccount(
+                10,
+                5_000,
+                15
+        );
+        int expected = 10;
+        int actual = account.getBalance();
 
-    Assertions.assertEquals(expected, actual);
-}
-
+        Assertions.assertEquals(expected, actual);
+    }
 
 
     @Test
@@ -104,21 +106,22 @@ public void CreateCreditAccountWithInitialBalancePositive() {
         Assertions.assertEquals(expected, actual);
     }
 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //тестируем creditLimit - неотрицательное число, максимальная сумма которую можно задолжать банку
-@Test
-public void CreateCreditAccountWithPositiveCreditLimit() {
+    @Test
+    public void CreateCreditAccountWithPositiveCreditLimit() {
 
-    CreditAccount account = new CreditAccount(
-            0,
-            5_000,
-            15
-    );
-    int expected = 0;
-    int actual = account.getBalance();
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        int expected = 0;
+        int actual = account.getBalance();
 
-    Assertions.assertEquals(expected, actual);
-}
+        Assertions.assertEquals(expected, actual);
+    }
+
     @Test
     public void CreateCreditAccountWithNegativeCreditLimit() {
 //        CreditAccount account = new CreditAccount(
@@ -153,21 +156,22 @@ public void CreateCreditAccountWithPositiveCreditLimit() {
         Assertions.assertEquals(expected, actual);
     }
 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  //тестирую rate - неотрицательное число, ставка кредитования для расчёта долга за отрицательный баланс
-@Test
-public void CreateCreditAccountWithPositiveRate() {
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //тестирую rate - неотрицательное число, ставка кредитования для расчёта долга за отрицательный баланс
+    @Test
+    public void CreateCreditAccountWithPositiveRate() {
 
-    CreditAccount account = new CreditAccount(
-            0,
-            5_000,
-            15
-    );
-    int expected = 0;
-    int actual = account.getBalance();
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        int expected = 0;
+        int actual = account.getBalance();
 
-    Assertions.assertEquals(expected, actual);
-}
+        Assertions.assertEquals(expected, actual);
+    }
+
     @Test
     public void CreateCreditAccountWithNegativeRate() {
 
@@ -194,21 +198,22 @@ public void CreateCreditAccountWithPositiveRate() {
         Assertions.assertEquals(expected, actual);
     }
 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //ок, тестируем метод pay
     //покупка меньше лимита
-@Test
-public void ShouldPayIfAmountLessThanLimit() {
-    CreditAccount account = new CreditAccount(
-            0,
-            5_000,
-            15
-    );
-    boolean expected = true;
-    boolean actual = account.pay(3_000);
+    @Test
+    public void ShouldPayIfAmountLessThanLimit() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        boolean expected = true;
+        boolean actual = account.pay(3_000);
 
-    Assertions.assertEquals(expected, actual);
-}
+        Assertions.assertEquals(expected, actual);
+    }
+
     @Test
     // покупка равна лимиту
     public void ShouldPayIfAmountEqualLimit() {
@@ -222,6 +227,7 @@ public void ShouldPayIfAmountLessThanLimit() {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     //больше лимита
     public void ShouldPayIfAmountMoreThanLimit() {
@@ -235,6 +241,7 @@ public void ShouldPayIfAmountLessThanLimit() {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     //Покупка равна нулю
     public void ShouldPayIfAmountIsZero() {
@@ -260,7 +267,8 @@ public void ShouldPayIfAmountLessThanLimit() {
 
         Assertions.assertEquals(expected, actual);
     }
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     @Test
     //Пополнить счет на положительную сумму
     public void ShouldIncreaseByPositiveAmount() {
@@ -275,6 +283,7 @@ public void ShouldPayIfAmountLessThanLimit() {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     //Пополнить счет на отрицательную сумму
     public void ShouldIncreaseByNegativeAmount() {
@@ -289,6 +298,7 @@ public void ShouldPayIfAmountLessThanLimit() {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     //Пополнить счет на нуль
     public void ShouldIncreaseByZeroAmount() {
@@ -308,76 +318,48 @@ public void ShouldPayIfAmountLessThanLimit() {
 
     @Test
     //Расчет процентов при положительном балансе
-    public void ShouldIncreaseRateearChangeByPositiveAmount() {
+    public void ShouldIncreaseRateIfPositiveBalance() {
         CreditAccount account = new CreditAccount(
                 1,
                 5_000,
                 15
         );
 
-        boolean expected = true;
-        boolean actual = account.add(100);
+        int expected = 0;
+        int actual = account.yearChange();
 
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    //Расчет процентов при отрицательном балансе
+    public void ShouldIncreaseRateIfNegativeBalance() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        account.pay(200);
+        int expected = -30;
+        int actual = account.yearChange();
 
+        Assertions.assertEquals(expected, actual);
+    }
 
+    @Test
+    //Расчет процентов при отрицательном балансе
+    public void ShouldIncreaseRateIfZeroBalance() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
 
+        int expected = 0;
+        int actual = account.yearChange();
 
-
-
-
-
-//
-//    @Test
-//    //проверка отрицательный баланс
-//    public void shouldAddToNegativeBalance() {
-//        CreditAccount account = new CreditAccount(
-//                0,
-//                5_000,
-//                15
-//        );
-//
-//        account.add(-3_000);
-//
-//        Assertions.assertEquals(3_000, account.getBalance());
-//    }
-//
-//
-//
-//
-//    @Test
-//    public void shouldAddIfInitialMoreThanZero() {
-//        CreditAccount account = new CreditAccount(
-//                100,
-//                3_000,
-//                15
-//        );
-//
-//        account.add(3_000);
-//
-//        Assertions.assertNotEquals(3100, account.getBalance());
-////Метод add неверно реализован, т.к. должно быть не balance = amount, а balance += amount
-//    }
-//
-//
-//    @Test
-//    public void shouldAddButMoreThanCreditLimit() {
-//        CreditAccount account = new CreditAccount(
-//                0,
-//                5_000,
-//                15
-//        );
-//
-//        account.add(5_000);
-//
-//        Assertions.assertEquals(5_000, account.getBalance());
-//        // * Может иметь баланс вплоть до отрицательного, но до указанного кредитного лимита.
-//        //метод add класса CreditAccount должен возвращать false
-//    }
-//
-
+        Assertions.assertEquals(expected, actual);
+    }
 
 
 }
